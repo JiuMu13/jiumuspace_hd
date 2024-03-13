@@ -13,7 +13,7 @@ import io.swagger.annotations.ApiModelProperty;
  * </p>
  *
  * @author jiumu
- * @since 2024-03-11
+ * @since 2024-03-12
  */
 @TableName("qt_user")
 @ApiModel(value = "QtUser对象", description = "")

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author jiumu
- * @since 2024-03-11
+ * @since 2024-03-12
  */
 @Service
 public class QtJcServiceImpl extends ServiceImpl<QtJcMapper, QtJc> implements IQtJcService {

@@ -38,3 +38,7 @@ server:
   servlet:
     session:
       timeout: 30m
+mybatis-plus:
+  mapper-locations: classpath*:/mapperxml/*.xml
+  configuration:
+    map-underscore-to-camel-case: false #关闭mp的驼峰式命名转换

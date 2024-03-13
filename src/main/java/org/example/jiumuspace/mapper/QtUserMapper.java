@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author jiumu
- * @since 2024-03-11
+ * @since 2024-03-12
  */
 public interface QtUserMapper extends BaseMapper<QtUser> {
 

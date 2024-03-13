@@ -1,6 +1,6 @@
 package org.example.jiumuspace.mapper;
 
-import org.example.jiumuspace.entity.QtDh;
+import org.example.jiumuspace.entity.QtJcDh;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author jiumu
- * @since 2024-03-11
+ * @since 2024-03-12
  */
-public interface QtDhMapper extends BaseMapper<QtDh> {
+public interface QtJcDhMapper extends BaseMapper<QtJcDh> {
 
 }

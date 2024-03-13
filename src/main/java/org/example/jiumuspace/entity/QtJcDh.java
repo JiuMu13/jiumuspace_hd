@@ -1,5 +1,7 @@
 package org.example.jiumuspace.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
@@ -11,14 +13,15 @@ import io.swagger.annotations.ApiModelProperty;
  * </p>
  *
  * @author jiumu
- * @since 2024-03-11
+ * @since 2024-03-12
  */
-@TableName("qt_dh")
-@ApiModel(value = "QtDh对象", description = "")
-public class QtDh implements Serializable {
+@TableName("qt_jc_dh")
+@ApiModel(value = "QtJcDh对象", description = "")
+public class QtJcDh implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     @ApiModelProperty("导航名")
@@ -64,7 +67,7 @@ public class QtDh implements Serializable {
 
     @Override
     public String toString() {
-        return "QtDh{" +
+        return "QtJcDh{" +
             "id = " + id +
             ", name = " + name +
             ", parentId = " + parentId +

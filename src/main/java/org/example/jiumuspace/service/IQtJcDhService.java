@@ -1,6 +1,6 @@
 package org.example.jiumuspace.service;
 
-import org.example.jiumuspace.entity.QtDh;
+import org.example.jiumuspace.entity.QtJcDh;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author jiumu
- * @since 2024-03-11
+ * @since 2024-03-12
  */
-public interface IQtDhService extends IService<QtDh> {
-
+public interface IQtJcDhService extends IService<QtJcDh> {
+    public String getIndex();
 }
