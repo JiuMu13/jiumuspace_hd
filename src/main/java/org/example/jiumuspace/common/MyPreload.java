@@ -18,12 +18,10 @@ import org.springframework.web.context.WebApplicationContext;
 public class MyPreload implements CommandLineRunner {
 
     @Autowired
-    private WebApplicationContext applicationContext;
-    @Autowired
-    private QtJcDhServiceImpl qtJcDhService;
+    ReloadResource resource;
+
     @Override
     public void run(String... args) throws Exception {
-        ServletContext servletContext = applicationContext.getServletContext();
-        servletContext.setAttribute("index",qtJcDhService.getIndex());
+        resource.jcIndex();
     }
 }

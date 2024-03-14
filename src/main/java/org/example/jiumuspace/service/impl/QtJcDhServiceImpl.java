@@ -10,6 +10,8 @@ import org.example.jiumuspace.service.IQtJcDhService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 import java.util.List;
@@ -52,4 +54,85 @@ public class QtJcDhServiceImpl extends ServiceImpl<QtJcDhMapper, QtJcDh> impleme
         }
         return JSON.toJSONString(list);
     }
+
+    @Override
+    public void addFirstIndex(String name) {
+        QtJcDh qtJcDh = new QtJcDh();
+        qtJcDh.setParentId(-1L);
+        qtJcDh.setName(name);
+        qtJcDhMapper.insert(qtJcDh);
+    }
+
+    @Override
+    public String getFirstIndex() {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("parentId",-1L);
+        List<QtJcDh> list = qtJcDhMapper.selectByMap(map);
+        StringBuilder r=new StringBuilder("[");
+        for (QtJcDh qtJcDh : list) {
+            r.append("{\"id\":").append(qtJcDh.getId())
+                    .append(",\"name\":").append("\""+qtJcDh.getName()+"\"").append("},");
+        }
+        r.deleteCharAt(r.lastIndexOf(","));
+        r.append("]");
+        return r.toString();
+    }
+
+    @Override
+    public void changeFirstIndex(Long id,String name) {
+        QtJcDh qtJcDh = new QtJcDh();
+        qtJcDh.setParentId(-1L);
+        qtJcDh.setName(name);
+        qtJcDh.setId(id);
+        qtJcDhMapper.updateById(qtJcDh);
+    }
+
+    @Override
+    public void deleteFirstIndex(Long id) {
+        QtJcDh qtJcDh = new QtJcDh();
+        qtJcDh.setId(id);
+        qtJcDhMapper.deleteById(qtJcDh);
+    }
+
+    @Override
+    public void addSecondIndex(Long parentId, String name, String url) {
+        QtJcDh qtJcDh = new QtJcDh();
+        qtJcDh.setParentId(parentId);
+        qtJcDh.setName(name);
+        qtJcDh.setUrl(url);
+        qtJcDhMapper.insert(qtJcDh);
+    }
+
+    @Override
+    public String getSecondIndex(Long parentId) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("parentId",parentId);
+        List<QtJcDh> list = qtJcDhMapper.selectByMap(map);
+        StringBuilder s=new StringBuilder("[");
+        for (QtJcDh qtJcDh : list) {
+            s.append("{\"id\":").append(qtJcDh.getId())
+                    .append(qtJcDh.getId()).append(",\"name\":").append(",\"parentId\":")
+                    .append(qtJcDh.getParentId()).append(",\"url\":").append(qtJcDh.getUrl())
+                    .append("},");
+        }
+        s.deleteCharAt(s.lastIndexOf(","));
+        s.append("]");
+        return s.toString();
+    }
+
+    @Override
+    public void changeSecondIndex(Long id, String name, String url) {
+        QtJcDh qtJcDh = new QtJcDh();
+        qtJcDh.setId(id);
+        qtJcDh.setName(name);
+        qtJcDh.setUrl(url);
+        qtJcDhMapper.updateById(qtJcDh);
+    }
+
+    @Override
+    public void deleteSecondIndex(Long id) {
+        qtJcDhMapper.deleteById(id);
+    }
+
+
 }
